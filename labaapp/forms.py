@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.models import User
-from labaapp.models import Post
 
 class LoginForm(forms.Form):
  username = forms.CharField()
