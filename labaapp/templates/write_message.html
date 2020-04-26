@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<table>
+<tr>
+<td style="font-size:20px;color:#4CAF50; ">Hello, {{username}}</td>
+<form method="post" action="/logout/">
+{% csrf_token %}
+<td><button type="submit">Logout</button></td>
+</form>
+</tr>
+</table>
+
+<br>
+<h2>Posts</h2>
+{% for msg in msgs %}
+<b>{{msg.sender}} {{msg.timestamp}}:</b>
+{{msg.content}}
+<br>
+{% endfor %}
+<form method="post" action="/send/">
+{% csrf_token %}
+<textarea name="content" rows="10" cols="30" ></textarea>
+<br>
+<button type="submit">Send</button>
+</form>
+{% endblock %}
